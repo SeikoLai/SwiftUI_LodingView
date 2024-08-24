@@ -10,6 +10,9 @@ public struct LoadingViewModifier: ViewModifier {
     /// The color of the spinner.
     public var spinnerColor: Color
     
+    /// The diameter of the spinner
+    public var diameter: CGFloat
+    
     /// The message to display below the loading indicator.
     public var message: String
     
@@ -32,12 +35,14 @@ public struct LoadingViewModifier: ViewModifier {
     ///   - cornerRadius: The corner radius of the loading view container. Defaults to 10.
     public init(isPresented: Binding<Bool>,
                 spinnerColor: Color = .white,
+                diameter: CGFloat = 30,
                 message: String = "Loading...",
                 messageColor: Color = .white,
                 backgroundColor: Color = Color.black.opacity(0.25),
                 cornerRadius: CGFloat = 10) {
         self._isPresented = isPresented
         self.spinnerColor = spinnerColor
+        self.diameter = diameter
         self.message = message
         self.messageColor = messageColor
         self.backgroundColor = backgroundColor
@@ -57,6 +62,7 @@ public struct LoadingViewModifier: ViewModifier {
             if isPresented {
                 LoadingView(isPresented: $isPresented,
                             spinnerColor: spinnerColor,
+                            diameter: diameter,
                             message: message,
                             messageColor: messageColor,
                             backgroundColor: backgroundColor,

@@ -13,15 +13,17 @@ public extension View {
     /// - Returns: A view with the LoadingViewModifier applied
     func loadingView(_ isPresented: Binding<Bool>,
                      spinnerColor: Color = .white,
+                     diameter: CGFloat = 30,
                      message: String = "Loading...",
                      messageColor: Color = .white,
                      backgroundColor: Color = Color.black.opacity(0.25),
                      cornerRadius: CGFloat = 10) -> some View {
         modifier(LoadingViewModifier(isPresented: isPresented,
                                      spinnerColor: spinnerColor,
+                                     diameter: diameter,
                                      message: message,
                                      messageColor: messageColor,
                                      backgroundColor: backgroundColor,
                                      cornerRadius: cornerRadius))
-                 }
+    }
 }
