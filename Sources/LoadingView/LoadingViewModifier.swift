@@ -60,7 +60,7 @@ public struct LoadingViewModifier: ViewModifier {
             
             // Show loading view when isPresented is true
             if isPresented {
-                LoadingView(isPresented: isPresented,
+                LoadingView(isPresented: $isPresented,
                             spinnerColor: spinnerColor,
                             message: message,
                             messageColor: messageColor,
