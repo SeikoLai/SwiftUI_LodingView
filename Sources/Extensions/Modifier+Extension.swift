@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Extension on ViewModifier to provide a convenient static method for creating a LoadingViewModifier
-extension ViewModifier where Self == LoadingViewModifier {
+public extension ViewModifier where Self == LoadingViewModifier {
     /// Creates a LoadingViewModifier with customizable properties
     /// - Parameters:
     ///   - isPresented: Binding to control the visibility of the loading view
