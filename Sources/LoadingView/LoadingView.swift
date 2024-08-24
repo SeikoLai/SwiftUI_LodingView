@@ -60,14 +60,17 @@ public struct LoadingView: View {
             VStack {
                 // Custom spinner view
                 Spinner(color: spinnerColor, diameter: diameter)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, message.isEmpty ? 0 : 20)
                 
-                // Loading message
-                Text(message)
-                    .font(.headline)
-                    .foregroundColor(messageColor)
-                    .multilineTextAlignment(.center)
+                if !message.isEmpty {
+                    // Loading message
+                    Text(message)
+                        .font(.headline)
+                        .foregroundColor(messageColor)
+                        .multilineTextAlignment(.center)
+                }
             }
+            .frame(minWidth: 120, minHeight: 120)
             .padding(20)
             .background(Color.black.opacity(0.75))
             .cornerRadius(cornerRadius)
