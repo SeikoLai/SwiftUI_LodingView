@@ -136,10 +136,9 @@ A view modifier that adds a loading overlay to any view.
 
 A customizable spinning loading indicator.
 
-### Extensions
+### View Extension
 
-- `ViewModifier`: Provides a convenient static method `loadingViewModifier()` for creating a `LoadingViewModifier`.
-- `View`: Adds the `loadingView()` method to easily apply the loading overlay to any view.
+Adds the `loadingView()` method to easily apply the loading overlay to any view.
 
 For detailed API documentation, please refer to the inline documentation in the source files.
 
