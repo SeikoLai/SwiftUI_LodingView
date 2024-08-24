@@ -71,6 +71,10 @@ public struct LoadingView: View {
                     .multilineTextAlignment(.center)
             }
             .frame(width: dimension, height: dimension)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 20)
+            .background(Color.black.opacity(0.75))
+            .cornerRadius(cornerRadius)
             .background(
                 GeometryReader { geometry in
                     Color.clear
@@ -79,10 +83,6 @@ public struct LoadingView: View {
                         }
                 }
             )
-            .padding(.horizontal, 30)
-            .padding(.vertical, 20)
-            .background(Color.black.opacity(0.75))
-            .cornerRadius(cornerRadius)
         }
         // Fade in/out animation when showing/hiding the loading view
         .opacity(isPresented ? 1 : 0)
