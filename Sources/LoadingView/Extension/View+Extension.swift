@@ -22,6 +22,6 @@ public extension View {
                                      message: message,
                                      messageColor: messageColor,
                                      backgroundColor: backgroundColor,
-                                     cornerRadius: cornerRadius)
+                                     cornerRadius: cornerRadius))
                  }
 }
