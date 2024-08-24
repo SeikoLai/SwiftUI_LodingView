@@ -5,7 +5,7 @@ A customizable, animated loading overlay for SwiftUI applications.
 ## Features
 
 - Easy to integrate with existing SwiftUI projects
-- Customizable spinner color, message, background, and more
+- Customizable spinner color, size, message, background, and more
 - Works across iOS, macOS, tvOS, and watchOS
 - Fade in/out animation
 - Can be used as a view or a view modifier
@@ -91,6 +91,7 @@ Both `LoadingView` and the `.loadingView()` modifier accept several parameters f
 
 - `isPresented`: Binding to control the visibility of the loading view
 - `spinnerColor`: The color of the spinner (default: white)
+- `diameter`: The diameter of the spinner (default: 30)
 - `message`: The message to display below the loading indicator (default: "Loading...")
 - `messageColor`: The color of the message text (default: white)
 - `backgroundColor`: The background color of the loading view (default: semi-transparent black)
@@ -102,6 +103,7 @@ Example with custom options:
 LoadingView(
     isPresented: $isLoading,
     spinnerColor: .blue,
+    diameter: 40,
     message: "Fetching data...",
     messageColor: .white,
     backgroundColor: Color.black.opacity(0.7),
@@ -115,6 +117,7 @@ Or using the modifier:
 .loadingView(
     $isLoading,
     spinnerColor: .blue,
+    diameter: 40,
     message: "Fetching data...",
     messageColor: .white,
     backgroundColor: Color.black.opacity(0.7),

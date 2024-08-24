@@ -10,7 +10,7 @@ public struct LoadingViewModifier: ViewModifier {
     /// The color of the spinner.
     public var spinnerColor: Color
     
-    /// The diameter of the spinner
+    /// The diameter of the spinner.
     public var diameter: CGFloat
     
     /// The message to display below the loading indicator.
@@ -29,6 +29,7 @@ public struct LoadingViewModifier: ViewModifier {
     /// - Parameters:
     ///   - isPresented: Binding to control the visibility of the loading view.
     ///   - spinnerColor: The color of the spinner. Defaults to white.
+    ///   - diameter: The diameter of the spinner. Defaults to 30.
     ///   - message: The message to display below the loading indicator. Defaults to "Loading...".
     ///   - messageColor: The color of the message text. Defaults to white.
     ///   - backgroundColor: The background color of the loading view. Defaults to semi-transparent black.
