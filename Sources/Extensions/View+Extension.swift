@@ -24,11 +24,11 @@ extension View {
                             messageColor: Color = .white,
                             backgroundColor: Color = Color.black.opacity(0.25),
                             cornerRadius: CGFloat = 10) -> some View {
-        self.modifier(loadingView(isPresented: isPresented,
-                                  spinnerColor: spinnerColor,
-                                  message: message,
-                                  messageColor: messageColor,
-                                  backgroundColor: backgroundColor,
-                                  cornerRadius: cornerRadius))
+        self.modifier(loadingViewModifier(isPresented: isPresented,
+                                          spinnerColor: spinnerColor,
+                                          message: message,
+                                          messageColor: messageColor,
+                                          backgroundColor: backgroundColor,
+                                          cornerRadius: cornerRadius))
     }
 }

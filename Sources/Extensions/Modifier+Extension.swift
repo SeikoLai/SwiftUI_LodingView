@@ -18,12 +18,12 @@ extension ViewModifier where Self == LoadingViewModifier {
     ///   - backgroundColor: The background color of the loading view (default: semi-transparent black)
     ///   - cornerRadius: The corner radius of the loading view container (default: 10)
     /// - Returns: A LoadingViewModifier instance
-    public func loadingView(_ isPresented: Binding<Bool>,
-                            spinnerColor: Color = .white,
-                            message: String = "Loading...",
-                            messageColor: Color = .white,
-                            backgroundColor: Color = Color.black.opacity(0.25),
-                            cornerRadius: CGFloat = 10) -> LoadingViewModifier {
+    public func loadingViewModifier(_ isPresented: Binding<Bool>,
+                                    spinnerColor: Color = .white,
+                                    message: String = "Loading...",
+                                    messageColor: Color = .white,
+                                    backgroundColor: Color = Color.black.opacity(0.25),
+                                    cornerRadius: CGFloat = 10) -> LoadingViewModifier {
         LoadingViewModifier(isPresented: isPresented,
                             spinnerColor: spinnerColor,
                             message: message,
