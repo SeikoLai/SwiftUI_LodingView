@@ -24,7 +24,7 @@ public extension View {
                             messageColor: Color = .white,
                             backgroundColor: Color = Color.black.opacity(0.25),
                             cornerRadius: CGFloat = 10) -> some View {
-        modifier(loadingViewModifier(isPresented: isPresented,
+        modifier(LoadingViewModifier(isPresented: isPresented,
                                      spinnerColor: spinnerColor,
                                      message: message,
                                      messageColor: messageColor,
