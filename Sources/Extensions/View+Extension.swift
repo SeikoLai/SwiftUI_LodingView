@@ -18,17 +18,17 @@ extension View {
     ///   - backgroundColor: The background color of the loading view (default: semi-transparent black)
     ///   - cornerRadius: The corner radius of the loading view container (default: 10)
     /// - Returns: A view with the LoadingViewModifier applied
-    public func loading(_ isPresented: Binding<Bool>,
-                        spinnerColor: Color = .white,
-                        message: String = "Loading...",
-                        messageColor: Color = .white,
-                        backgroundColor: Color = Color.black.opacity(0.25),
-                        cornerRadius: CGFloat = 10) -> some View {
-        self.modifier(LoadingViewModifier(isPresented: isPresented,
-                                          spinnerColor: spinnerColor,
-                                          message: message,
-                                          messageColor: messageColor,
-                                          backgroundColor: backgroundColor,
-                                          cornerRadius: cornerRadius))
+    public func loadingView(_ isPresented: Binding<Bool>,
+                            spinnerColor: Color = .white,
+                            message: String = "Loading...",
+                            messageColor: Color = .white,
+                            backgroundColor: Color = Color.black.opacity(0.25),
+                            cornerRadius: CGFloat = 10) -> some View {
+        self.modifier(.loadingView(isPresented: isPresented,
+                                   spinnerColor: spinnerColor,
+                                   message: message,
+                                   messageColor: messageColor,
+                                   backgroundColor: backgroundColor,
+                                   cornerRadius: cornerRadius))
     }
 }
