@@ -24,6 +24,8 @@ public struct LoadingView: View {
     /// The corner radius of the loading view container.
     public var cornerRadius: CGFloat
     
+    @State private var dimension: CGFloat = .zero
+    
     /// Creates a new loading view.
     /// - Parameters:
     ///   - isPresented: Binding to control the visibility of the loading view.
@@ -68,6 +70,15 @@ public struct LoadingView: View {
                     .foregroundColor(messageColor)
                     .multilineTextAlignment(.center)
             }
+            .frame(width: dimension, height: dimension)
+            .background(
+                GeometryReader { geometry in
+                    Color.clear
+                        .onAppear {
+                            dimension = max(geometry.size.width, geometry.size.height)
+                        }
+                }
+            )
             .padding(.horizontal, 30)
             .padding(.vertical, 20)
             .background(Color.black.opacity(0.75))
