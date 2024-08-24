@@ -57,7 +57,7 @@ public struct LoadingView: View {
             VStack {
                 // Custom spinner view
                 Spinner(color: spinnerColor)
-                    .padding(.bottom, 20)
+                    .padding(.vertical, 20)
                 
                 // Loading message
                 Text(message)
@@ -67,8 +67,8 @@ public struct LoadingView: View {
             }
             .padding(.horizontal, 30)
             .padding(.vertical, 20)
-            .background(Color.gray.opacity(0.2))
-            .cornerRadius(cornerRadius)
+            .background(Color.black.opacity(0.75))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
         }
         // Fade in/out animation when showing/hiding the loading view
         .opacity(isPresented ? 1 : 0)
