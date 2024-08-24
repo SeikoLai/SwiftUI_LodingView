@@ -1,40 +1,41 @@
-# ``LoadingView``
+# LoadingView
 
 A customizable, animated loading overlay for SwiftUI applications.
 
-## Overview
+## Features
 
-`LoadingView` is a SwiftUI view that displays an animated loading indicator with an optional message. It's designed to be easily integrated into any SwiftUI project and works across iOS, macOS, tvOS, and watchOS platforms.
+- Easy to integrate with existing SwiftUI projects
+- Customizable spinner color, message, background, and more
+- Works across iOS, macOS, tvOS, and watchOS
+- Fade in/out animation
+- Can be used as a view or a view modifier
 
-Use `LoadingView` when you need to indicate that a task is in progress and potentially block user interaction until the task is complete.
+## Requirements
 
-```swift
-LoadingView(isPresented: $isLoading, message: "Processing...")
-```
+- iOS 13.0+
+- macOS 10.15+
+- tvOS 13.0+
+- watchOS 6.0+
+- Xcode 11.0+
+- Swift 5.1+
 
-## Topics
+## Installation
 
-### Essentials
+### Swift Package Manager
 
-- ``LoadingView/init(isPresented:message:)``
+You can add LoadingView to your project using Swift Package Manager. In Xcode:
 
-### Customizing the Loading View
-
-- ``LoadingView/message``
-
-### Controlling the Loading View
-
-- ``LoadingView/isPresented``
+1. Go to File > Swift Packages > Add Package Dependency
+2. Enter the repository URL: `https://github.com/yourusername/LoadingView.git`
+3. Select the version you want to use
 
 ## Usage
 
-To use `LoadingView` in your SwiftUI view:
+There are two main ways to use the LoadingView in your SwiftUI projects:
 
-1. Import the LoadingView module
-2. Create a state variable to control the visibility of the loading view
-3. Add the `LoadingView` as an overlay to your content
+### 1. As a View
 
-Here's a basic example:
+You can use `LoadingView` directly in your SwiftUI views:
 
 ```swift
 import SwiftUI
@@ -44,35 +45,87 @@ struct ContentView: View {
     @State private var isLoading = false
     
     var body: some View {
-        Button("Start Task") {
-            isLoading = true
-            // Perform your task here
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                isLoading = false
+        ZStack {
+            // Your main content here
+            Button("Start Loading") {
+                isLoading = true
+                // Simulate some work
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    isLoading = false
+                }
             }
+            
+            LoadingView(isPresented: $isLoading, message: "Processing...")
         }
-        .overlay(
-            LoadingView(isPresented: $isLoading, message: "Loading...")
-        )
     }
 }
 ```
 
-### Customization
+### 2. As a View Modifier
 
-You can customize the loading message by passing a different string to the `message` parameter:
+You can also use the `.loading()` modifier on any view:
 
 ```swift
-LoadingView(isPresented: $isLoading, message: "Fetching data...")
+import SwiftUI
+import LoadingView
+
+struct ContentView: View {
+    @State private var isLoading = false
+    
+    var body: some View {
+        Button("Start Loading") {
+            isLoading = true
+            // Simulate some work
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                isLoading = false
+            }
+        }
+        .loading($isLoading, message: "Please wait...")
+    }
+}
 ```
 
-## Topics
+## Customization
 
-### Creating a Loading View
+Both `LoadingView` and the `.loading()` modifier accept several parameters for customization:
 
-- ``LoadingView/init(isPresented:message:)``
+- `isPresented`: Binding to control the visibility of the loading view
+- `spinnerColor`: The color of the spinner (default: white)
+- `message`: The message to display below the loading indicator (default: "Loading...")
+- `messageColor`: The color of the message text (default: white)
+- `backgroundColor`: The background color of the loading view (default: semi-transparent black)
+- `cornerRadius`: The corner radius of the loading view container (default: 10)
 
-### Properties
+Example with custom options:
 
-- ``LoadingView/isPresented``
-- ``LoadingView/message``
+```swift
+LoadingView(
+    isPresented: $isLoading,
+    spinnerColor: .blue,
+    message: "Fetching data...",
+    messageColor: .white,
+    backgroundColor: Color.black.opacity(0.7),
+    cornerRadius: 20
+)
+```
+
+Or using the modifier:
+
+```swift
+.loading(
+    $isLoading,
+    spinnerColor: .blue,
+    message: "Fetching data...",
+    messageColor: .white,
+    backgroundColor: Color.black.opacity(0.7),
+    cornerRadius: 20
+)
+```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions to LoadingView are welcome! Please feel free to submit a Pull Request.

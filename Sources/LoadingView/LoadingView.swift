@@ -9,11 +9,14 @@ public struct LoadingView: View {
     /// Binding to control the visibility of the loading view.
     @Binding public var isPresented: Bool
     
+    /// The color of the spinner.
+    public var spinnerColor: Color
+    
     /// The message to display below the loading indicator.
     public var message: String
     
-    /// The color of the loading indicator and text.
-    public var color: Color
+    /// The color of the message text.
+    public var messageColor: Color
     
     /// The background color of the loading view.
     public var backgroundColor: Color
@@ -24,38 +27,42 @@ public struct LoadingView: View {
     /// Creates a new loading view.
     /// - Parameters:
     ///   - isPresented: Binding to control the visibility of the loading view.
-    ///   - message: The message to display below the loading indicator.
-    ///   - color: The color of the loading indicator and text. Defaults to white.
+    ///   - spinnerColor: The color of the spinner. Defaults to white.
+    ///   - message: The message to display below the loading indicator. Defaults to "Loading...".
+    ///   - messageColor: The color of the message text. Defaults to white.
     ///   - backgroundColor: The background color of the loading view. Defaults to black with opacity.
     ///   - cornerRadius: The corner radius of the loading view container. Defaults to 10.
     public init(
         isPresented: Binding<Bool>,
+        spinnerColor: Color = .white,
         message: String = "Loading...",
-        color: Color = .white,
-        backgroundColor: Color = Color.black.opacity(0.6),
+        messageColor: Color = .white,
+        backgroundColor: Color = Color.black.opacity(0.25),
         cornerRadius: CGFloat = 10
     ) {
         self._isPresented = isPresented
+        self.spinnerColor = spinnerColor
         self.message = message
-        self.color = color
+        self.messageColor = messageColor
         self.backgroundColor = backgroundColor
         self.cornerRadius = cornerRadius
     }
     
     public var body: some View {
         ZStack {
+            // Semi-transparent background covering the entire screen
             backgroundColor
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: color))
-                    .scaleEffect(1.5)
+                // Custom spinner view
+                Spinner(color: spinnerColor)
                     .padding(.bottom, 20)
                 
+                // Loading message
                 Text(message)
                     .font(.headline)
-                    .foregroundColor(color)
+                    .foregroundColor(messageColor)
                     .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 30)
@@ -63,6 +70,7 @@ public struct LoadingView: View {
             .background(Color.gray.opacity(0.2))
             .cornerRadius(cornerRadius)
         }
+        // Fade in/out animation when showing/hiding the loading view
         .opacity(isPresented ? 1 : 0)
         .animation(.easeInOut(duration: 0.2), value: isPresented)
     }
