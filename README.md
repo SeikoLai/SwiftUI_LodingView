@@ -26,7 +26,7 @@ A customizable, animated loading overlay for SwiftUI applications.
 You can add LoadingView to your project using Swift Package Manager. In Xcode:
 
 1. Go to File > Swift Packages > Add Package Dependency
-2. Enter the repository URL: `https://github.com/yourusername/LoadingView.git`
+2. Enter the repository URL: `https://github.com/SeikoLai/SwiftUI_LodingView.git`
 3. Select the version you want to use
 
 ## Usage
