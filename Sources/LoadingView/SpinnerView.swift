@@ -1,14 +1,6 @@
-//
-//  SpinnerView.swift
-//
-//
-//  Created by Sam on 2024/8/24.
-//
-
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-
 /// A customizable spinning loading indicator
 public struct Spinner: View {
     
@@ -73,9 +65,9 @@ public struct Spinner: View {
             .animation(animation, value: isAnimating)
             .onAppear {
                 // Delay 0.25 seconds to let spinner render at correct location and avoid incorrect animation
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: {
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.25) {
                     self.isAnimating.toggle()
-                })
+                }
             }
     }
 }

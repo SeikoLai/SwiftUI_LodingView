@@ -1,14 +1,6 @@
-//
-//  LoadingViewModifier.swift
-//
-//
-//  Created by Sam on 2024/8/24.
-//
-
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-
 /// A view modifier that adds a loading overlay to any view
 public struct LoadingViewModifier: ViewModifier {
     
@@ -52,6 +44,9 @@ public struct LoadingViewModifier: ViewModifier {
         self.cornerRadius = cornerRadius
     }
     
+    /// Applies the loading view modifier to the content
+    /// - Parameter content: The content to which the loading view is applied
+    /// - Returns: A view with the loading overlay applied
     public func body(content: Content) -> some View {
         ZStack {
             // The original content

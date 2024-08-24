@@ -1,6 +1,3 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
-
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
@@ -30,7 +27,7 @@ public struct LoadingView: View {
     ///   - spinnerColor: The color of the spinner. Defaults to white.
     ///   - message: The message to display below the loading indicator. Defaults to "Loading...".
     ///   - messageColor: The color of the message text. Defaults to white.
-    ///   - backgroundColor: The background color of the loading view. Defaults to black with opacity.
+    ///   - backgroundColor: The background color of the loading view. Defaults to semi-transparent black.
     ///   - cornerRadius: The corner radius of the loading view container. Defaults to 10.
     public init(
         isPresented: Binding<Bool>,

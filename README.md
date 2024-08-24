@@ -63,7 +63,7 @@ struct ContentView: View {
 
 ### 2. As a View Modifier
 
-You can also use the `.loading()` modifier on any view:
+You can also use the `.loadingView()` modifier on any view:
 
 ```swift
 import SwiftUI
@@ -80,14 +80,14 @@ struct ContentView: View {
                 isLoading = false
             }
         }
-        .loading($isLoading, message: "Please wait...")
+        .loadingView($isLoading, message: "Please wait...")
     }
 }
 ```
 
 ## Customization
 
-Both `LoadingView` and the `.loading()` modifier accept several parameters for customization:
+Both `LoadingView` and the `.loadingView()` modifier accept several parameters for customization:
 
 - `isPresented`: Binding to control the visibility of the loading view
 - `spinnerColor`: The color of the spinner (default: white)
@@ -112,7 +112,7 @@ LoadingView(
 Or using the modifier:
 
 ```swift
-.loading(
+.loadingView(
     $isLoading,
     spinnerColor: .blue,
     message: "Fetching data...",
@@ -121,6 +121,27 @@ Or using the modifier:
     cornerRadius: 20
 )
 ```
+
+## API Reference
+
+### LoadingView
+
+The main view struct that displays the loading overlay.
+
+### LoadingViewModifier
+
+A view modifier that adds a loading overlay to any view.
+
+### Spinner
+
+A customizable spinning loading indicator.
+
+### Extensions
+
+- `ViewModifier`: Provides a convenient static method `loadingViewModifier()` for creating a `LoadingViewModifier`.
+- `View`: Adds the `loadingView()` method to easily apply the loading overlay to any view.
+
+For detailed API documentation, please refer to the inline documentation in the source files.
 
 ## License
 
