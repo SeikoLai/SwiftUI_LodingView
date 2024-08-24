@@ -79,7 +79,7 @@ public struct LoadingView: View {
                 GeometryReader { geometry in
                     Color.clear
                         .onAppear {
-                            dimension = max(geometry.size.width, geometry.size.height)
+                            dimension = max(geometry.size.width, geometry.size.height) * 1.2
                         }
                 }
             )
