@@ -62,7 +62,7 @@ public struct LoadingView: View {
             VStack {
                 // Custom spinner view
                 Spinner(color: spinnerColor, diameter: diameter)
-                    .padding(.vertical, 20)
+                    .padding(.padding, 20)
                 
                 // Loading message
                 Text(message)
@@ -71,15 +71,14 @@ public struct LoadingView: View {
                     .multilineTextAlignment(.center)
             }
             .frame(width: dimension, height: dimension)
-            .padding(.horizontal, 30)
-            .padding(.vertical, 20)
+            .padding(20)
             .background(Color.black.opacity(0.75))
             .cornerRadius(cornerRadius)
             .background(
                 GeometryReader { geometry in
                     Color.clear
                         .onAppear {
-                            dimension = max(geometry.size.width, geometry.size.height) * 1.5
+                            dimension = max(geometry.size.width, geometry.size.height) * 1.2
                         }
                 }
             )
