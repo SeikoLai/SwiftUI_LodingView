@@ -29,7 +29,7 @@ public struct LoadingView: View {
     ///   - isPresented: Binding to control the visibility of the loading view.
     ///   - spinnerColor: The color of the spinner. Defaults to white.
     ///   - diameter: The diameter of the spinner. Defaults to 30.
-    ///   - message: The message to display below the loading indicator. Defaults to "Loading...".
+    ///   - message: The message to display below the loading indicator. Defaults to empty string.
     ///   - messageColor: The color of the message text. Defaults to white.
     ///   - backgroundColor: The background color of the loading view. Defaults to semi-transparent black.
     ///   - cornerRadius: The corner radius of the loading view container. Defaults to 10.
@@ -37,7 +37,7 @@ public struct LoadingView: View {
         isPresented: Binding<Bool>,
         spinnerColor: Color = .white,
         diameter: CGFloat = 30,
-        message: String = "Loading...",
+        message: String = "",
         messageColor: Color = .white,
         backgroundColor: Color = Color.black.opacity(0.25),
         cornerRadius: CGFloat = 10
