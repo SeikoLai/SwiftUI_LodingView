@@ -70,7 +70,7 @@ public struct LoadingView: View {
                         .multilineTextAlignment(.center)
                 }
             }
-            .frame(minWidth: 120, minHeight: 120)
+            .frame(minWidth: 100, minHeight: 100)
             .padding(20)
             .background(Color.black.opacity(0.75))
             .cornerRadius(cornerRadius)
