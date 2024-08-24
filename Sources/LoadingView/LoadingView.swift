@@ -62,7 +62,7 @@ public struct LoadingView: View {
             VStack {
                 // Custom spinner view
                 Spinner(color: spinnerColor, diameter: diameter)
-                    .padding(.padding, 20)
+                    .padding(.bottom, 20)
                 
                 // Loading message
                 Text(message)
