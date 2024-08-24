@@ -68,7 +68,7 @@ public struct LoadingView: View {
             .padding(.horizontal, 30)
             .padding(.vertical, 20)
             .background(Color.black.opacity(0.75))
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .cornerRadius(cornerRadius)
         }
         // Fade in/out animation when showing/hiding the loading view
         .opacity(isPresented ? 1 : 0)
