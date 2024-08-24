@@ -9,6 +9,9 @@ public struct LoadingView: View {
     /// The color of the spinner.
     public var spinnerColor: Color
     
+    /// The diameter of the spinner
+    private(set) var diameter: CGFloat
+    
     /// The message to display below the loading indicator.
     public var message: String
     
@@ -32,6 +35,7 @@ public struct LoadingView: View {
     public init(
         isPresented: Binding<Bool>,
         spinnerColor: Color = .white,
+        diameter: CGFloat = 30,
         message: String = "Loading...",
         messageColor: Color = .white,
         backgroundColor: Color = Color.black.opacity(0.25),
@@ -39,6 +43,7 @@ public struct LoadingView: View {
     ) {
         self._isPresented = isPresented
         self.spinnerColor = spinnerColor
+        self.diameter = diameter
         self.message = message
         self.messageColor = messageColor
         self.backgroundColor = backgroundColor
@@ -53,7 +58,7 @@ public struct LoadingView: View {
             
             VStack {
                 // Custom spinner view
-                Spinner(color: spinnerColor)
+                Spinner(color: spinnerColor, diameter: diameter)
                     .padding(.vertical, 20)
                 
                 // Loading message
